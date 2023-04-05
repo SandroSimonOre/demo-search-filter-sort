@@ -1,6 +1,8 @@
 // https://contactmentor.com/checkbox-list-react-js-example/
 
+import { useEffect } from "react"
 import { useData } from "./contexts/DataContext"
+import { useDataDispatch } from "./contexts/DataContext"
 
 export default function App() {
   /* const checkList = [
@@ -10,6 +12,7 @@ export default function App() {
   ]  */
   
   const data = useData()
+  const dispatch = useDataDispatch()
   //console.log(data)
   //const [selectedVideos, setSelectedVideos] = useState(videos)
   //const [selectedCategories, setSelectedCategories] = useState([])
@@ -28,18 +31,21 @@ export default function App() {
     console.log(selectedCategories)
   }, [selectedCategories])
    */
+
+  useEffect(()=> {
+    console.log(data)
+  }, [data])
   return (
     <>
-      
-        {/* {
-          courses.map(c => (
-            <span key={c.id}>
-              <p>{c.title}</p>
-            </span>
-          ))
-        } */}
-        <h1>{data.length}</h1>
-      
+      {
+        data.map(c => (
+          <span key={c.id}>
+            <p>{c.title}</p>
+          </span>
+        ))
+      }
+      <button onClick={() => dispatch({type: 'sortByTitle'})}>Ordenar</button>
+      <button onClick={() => console.log(data)}>Mostrar estado</button>
     </>
   )
 }

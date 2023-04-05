@@ -46,7 +46,8 @@ function dataReducer(data, action) {
         }
         
         case 'sortByTitle': {
-            return data.sort((a, b) => a.title - b.title);
+            console.log('ordenando...')
+            return data.sort((a, b) => (a.title > b.title ? 1 : -1));
         }
         
         default: {
