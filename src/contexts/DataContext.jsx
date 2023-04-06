@@ -38,16 +38,19 @@ function dataReducer(data, action) {
         }
         
         case 'filterByCategory': {
-            return data.filter(d => d.category === action.category);
+            return data.filter(d => d.category === action.payload);
         }
         
-        case 'sortByCategory': {
-            return data.sort((a, b) => a.category - b.category);
+        case 'sortByTitleAsc': {
+            return [...data].sort((a, b) => (a.title > b.title ? 1 : -1));
         }
-        
-        case 'sortByTitle': {
-            console.log('ordenando...')
-            return data.sort((a, b) => (a.title > b.title ? 1 : -1));
+
+        case 'sortByTitleDesc': {
+            return [...data].sort((a, b) => (a.title < b.title ? 1 : -1));
+        }
+
+        case 'search': {
+            return data.filter(d => d.title.toLowerCase().includes(action.payload.toLowerCase()))
         }
         
         default: {

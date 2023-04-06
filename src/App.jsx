@@ -32,11 +32,16 @@ export default function App() {
   }, [selectedCategories])
    */
 
-  useEffect(()=> {
-    console.log(data)
-  }, [data])
+  
   return (
     <>
+      
+      <button onClick={() => dispatch({type: 'sortByTitleAsc'})}>Ordenar ascendente</button>
+      <button onClick={() => dispatch({type: 'sortByTitleDesc'})}>Ordenar descendente</button>
+      <button onClick={() => dispatch({type: 'filterByCategory', payload: 'python'})}>Python</button>
+      <button onClick={() => dispatch({type: 'reset'})}>Resetear</button>
+      <button onClick={() => dispatch({type: 'search', payload: 'eXcel'})}>Search</button>
+
       {
         data.map(c => (
           <span key={c.id}>
@@ -44,8 +49,6 @@ export default function App() {
           </span>
         ))
       }
-      <button onClick={() => dispatch({type: 'sortByTitle'})}>Ordenar</button>
-      <button onClick={() => console.log(data)}>Mostrar estado</button>
     </>
   )
 }
