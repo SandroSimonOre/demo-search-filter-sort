@@ -1,6 +1,6 @@
 // https://contactmentor.com/checkbox-list-react-js-example/
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useData } from "./contexts/DataContext"
 import { useDataDispatch } from "./contexts/DataContext"
 
@@ -13,6 +13,15 @@ export default function App() {
   
   const data = useData()
   const dispatch = useDataDispatch()
+
+  // This could be a component
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleChange = e => setSearchTerm(e.target.value)
+
+  useEffect( ()=> {
+    dispatch({type: 'search', payload: searchTerm})
+  }, [searchTerm])
   //console.log(data)
   //const [selectedVideos, setSelectedVideos] = useState(videos)
   //const [selectedCategories, setSelectedCategories] = useState([])
@@ -35,12 +44,16 @@ export default function App() {
   
   return (
     <>
+      <div>
+        <label htmlFor="searchTerm">Write your search</label>
+        <input onChange={handleChange} type="text" id="searchTerm" placeholder="Example: Python" />
+      </div>
       
       <button onClick={() => dispatch({type: 'sortByTitleAsc'})}>Ordenar ascendente</button>
       <button onClick={() => dispatch({type: 'sortByTitleDesc'})}>Ordenar descendente</button>
       <button onClick={() => dispatch({type: 'filterByCategory', payload: 'python'})}>Python</button>
       <button onClick={() => dispatch({type: 'reset'})}>Resetear</button>
-      <button onClick={() => dispatch({type: 'search', payload: 'eXcel'})}>Search</button>
+      
 
       {
         data.map(c => (
