@@ -7,3 +7,7 @@
 .list .card {
     border: solid 1px black;
 }
+
+.checksContainer {
+    display: flex;
+}

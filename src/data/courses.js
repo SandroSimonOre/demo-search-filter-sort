@@ -39,5 +39,5 @@ export const courses = [
     {id: 38, title: 'Sharing and Collaborating with Power BI Reports and Dashboards', categoryId: 'powerbi', categoryName: 'Power BI'},
     {id: 39, title: 'Power BI and Excel Integration for Business Intelligence', categoryId: 'powerbi', categoryName: 'Power BI'},
     {id: 40, title: 'Power BI Administration and Security', categoryId: 'powerbi', categoryName: 'Power BI'},
-]
+].reverse()
 
