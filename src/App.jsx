@@ -12,15 +12,10 @@ export default function App() {
     {id: 'powerbi', caption: 'Power BI'}
   ];
 
+  const [order, setOrder] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [data, setData] = useState(courses)
-  const [order, setOrder] = useState('')
   const [categories, setCategories] = useState([])
-
-  // Search
-  useEffect( ()=> {
-    setData(courses.filter(c => c.title.toLowerCase().includes(searchTerm.toLocaleLowerCase())))
-  }, [searchTerm])
 
   // Order
   useEffect( ()=> {
@@ -40,14 +35,18 @@ export default function App() {
     }   
   }, [order])
   
-  // Filter
+  // Search and Filter
   useEffect( ()=> {
+    
+    let updatedData = [...courses]
     if (categories.length > 0 ) {
-      setData( courses.filter(e => categories.includes(e.categoryId))) 
-    } else if (categories.length === 0) {
-      setData(courses)
+      updatedData = updatedData.filter(e => categories.includes(e.categoryId))
     }
-  }, [categories])
+    updatedData = updatedData.filter(c => c.title.toLowerCase().includes(searchTerm.toLocaleLowerCase()))
+    
+    setData(updatedData)
+
+  }, [categories, searchTerm])
 
   const handleCheck = e => {
     if (e.target.checked) {
@@ -57,11 +56,18 @@ export default function App() {
     }
   }
 
+  const handleChange = e => {
+    const updateSearchTerm = setTimeout(()=> {
+      setSearchTerm(e.target.value)
+    }, 2000)
+    return ()=> clearTimeout(updateSearchTerm)
+  }
+
   return (
     <>
       <div>
         <label htmlFor="searchTerm">Write your search</label>
-        <input onChange={e => setSearchTerm(e.target.value)} type="text" id="searchTerm" placeholder="Example: Python" />
+        <input onChange={ handleChange /* e => setSearchTerm(e.target.value) */} type="text" id="searchTerm" placeholder="Example: Python" />
       </div>
 
       <div>
