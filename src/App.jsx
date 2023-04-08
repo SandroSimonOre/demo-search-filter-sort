@@ -1,7 +1,6 @@
-// https://contactmentor.com/checkbox-list-react-js-example/
 import { useEffect, useState } from 'react'
 import {courses} from './data/courses'
-import styles from './App.module.css'
+import styles from './App.module.scss'
 
 export default function App() {
   
@@ -64,42 +63,56 @@ export default function App() {
   }
 
   return (
-    <>
-      <div>
-        <label htmlFor="searchTerm">Write your search</label>
-        <input onChange={ handleChange /* e => setSearchTerm(e.target.value) */} type="text" id="searchTerm" placeholder="Example: Python" />
-      </div>
+    <div className={styles.App}>
+      <section className={styles.header}>
+        <h1>Banner here</h1>  
+      </section>
 
-      <div>
-        <button onClick={() => setOrder('titleAsc')}>Sort Asc</button>
-        <button onClick={() => setOrder('titleDesc')}>Sort Desc</button>
-        <button onClick={() => setOrder('newest')}>Newest</button>
-        <button onClick={() => setOrder('oldest')}>Oldest</button>
-      </div>
+      <section className={styles.sidebar}>
+          {
+            checkList.map(e => (
+              <div key={e.id} onChange={handleCheck}>
+                <input value={e.id} type="checkbox" />
+                <span>{e.caption}</span>
+              </div>
+            ))
+          }
+        </section> 
 
-      <p>{data.length}</p>
+      <section className={styles.main}>
+        
+        
 
-      <div className={styles.checksContainer}>
-        {
-          checkList.map(e => (
-            <div key={e.id} onChange={handleCheck}>
-              <input value={e.id} type="checkbox" />
-              <span>{e.caption}</span>
-            </div>
-          ))
-        }
-      </div>  
-      
-      <div className={styles.list}>
-        {
-          data.map(c => (
-            <div key={c.id} className={styles.card}>
-              <h3>{c.title}</h3>
-              <p>{c.categoryName.toUpperCase()}</p>
-            </div>
-          ))
-        }
-      </div>
-    </>
+        <div className=''>
+          <div>
+            <label htmlFor="searchTerm">Write your search</label>
+            <input onChange={ handleChange /* e => setSearchTerm(e.target.value) */} type="text" id="searchTerm" placeholder="Example: Python" />
+          </div>
+
+          <div className={styles.dropdown}>
+            <span>Ordenar</span>
+            <ul className={styles.menu}>
+              <li onClick={() => setOrder('titleAsc')}>Alphabetical (A-Z)</li>
+              <li onClick={() => setOrder('titleDesc')}>Alphabetical (Z-A)</li>
+              <li onClick={() => setOrder('newest')}>Newest</li>
+              <li onClick={() => setOrder('oldest')}>Oldest</li>
+            </ul>
+          </div>
+
+          <p>{data.length}</p>
+        
+          <div className={styles.list}>
+            {
+              data.map(c => (
+                <div key={c.id} className={styles.card}>
+                  <h3>{c.title}</h3>
+                  <p>{c.categoryName.toUpperCase()}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }
