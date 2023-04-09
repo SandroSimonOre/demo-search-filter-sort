@@ -1,0 +1,13 @@
+.filter {
+    
+    display: flex;
+    flex-direction: column;
+
+    .menuItem {
+        padding: 1rem;
+
+        input::before {
+            background-color: yellow;
+        }
+    }
+}

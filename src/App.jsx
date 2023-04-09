@@ -1,16 +1,12 @@
 import { useEffect, useState } from 'react'
+import { Banner } from './components/Banner';
+import { List } from './components/List';
+import { Filter } from './components/Filter';
 import {courses} from './data/courses'
-import styles from './App.module.scss'
+import styles from './styles/App.module.scss'
 
 export default function App() {
   
-  const checkList = [
-    {id: 'python', caption: 'Python'},
-    {id: 'excel', caption: 'Excel'},
-    {id: 'databases', caption: 'Databases'},
-    {id: 'powerbi', caption: 'Power BI'}
-  ];
-
   const [order, setOrder] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
   const [data, setData] = useState(courses)
@@ -64,32 +60,26 @@ export default function App() {
 
   return (
     <div className={styles.App}>
+
       <section className={styles.header}>
-        <h1>Banner here</h1>  
+        <Banner />  
       </section>
 
       <section className={styles.sidebar}>
-          {
-            checkList.map(e => (
-              <div key={e.id} onChange={handleCheck}>
-                <input value={e.id} type="checkbox" />
-                <span>{e.caption}</span>
-              </div>
-            ))
-          }
-        </section> 
+        <Filter handler={handleCheck} />
+      </section> 
 
       <section className={styles.main}>
+      
+        <div className={styles.search}>
+          <input onChange={ handleChange } type="text" id="searchTerm" placeholder="Search" />
+        </div>
         
+        <div className={styles.results}>
+          <p>{`${data.length} results ${searchTerm ? 'for ' + searchTerm : ''}`}</p>
+        </div>
         
-
-        <div className=''>
-          <div>
-            <label htmlFor="searchTerm">Write your search</label>
-            <input onChange={ handleChange /* e => setSearchTerm(e.target.value) */} type="text" id="searchTerm" placeholder="Example: Python" />
-          </div>
-
-          <div className={styles.dropdown}>
+        <div className={styles.dropdown}>
             <span>Ordenar</span>
             <ul className={styles.menu}>
               <li onClick={() => setOrder('titleAsc')}>Alphabetical (A-Z)</li>
@@ -97,22 +87,14 @@ export default function App() {
               <li onClick={() => setOrder('newest')}>Newest</li>
               <li onClick={() => setOrder('oldest')}>Oldest</li>
             </ul>
-          </div>
-
-          <p>{data.length}</p>
-        
-          <div className={styles.list}>
-            {
-              data.map(c => (
-                <div key={c.id} className={styles.card}>
-                  <h3>{c.title}</h3>
-                  <p>{c.categoryName.toUpperCase()}</p>
-                </div>
-              ))
-            }
-          </div>
         </div>
+        
+        <div className={styles.list}>
+          <List data={data} />           
+        </div>
+
       </section>
+      
     </div>
   )
 }

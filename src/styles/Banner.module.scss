@@ -1,0 +1,16 @@
+.Banner {
+    display: flex;
+
+    .text {
+        width: 50%;
+        padding: 4rem 6rem;
+    }
+
+    .illustration {
+        width: 50%;
+
+        img {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,99 @@
+.App {
+    
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    color: white;
+    //height: 100vh;
+
+    .header {
+        width: 100%;
+        //border: solid green 1px;
+    }
+
+    .sidebar {
+        width: 20%;
+    }
+    
+    .main {
+
+        display: flex;
+        width: 80%;
+        flex-wrap: wrap;
+
+        .search {
+            width: 100%;
+            
+            input {
+                width: 100%;
+                background-color: black;
+                padding: 1rem;
+                color: white;
+                border: solid white 1px;
+                outline: none;
+
+                &::placeholder {
+                    color: white;
+                }
+            }
+        }
+
+        .results {
+            width: 50%;
+            border: solid pink 1px;
+        }
+
+        .dropdown {
+            width: 50%;
+            position: relative;
+            display: flex;
+            justify-content: end;
+            border: solid blue 1px;
+
+            span {
+                background-color: #4CAF50;
+                color: white;
+                font-size: 16px;
+                border: solid yellow 1px;
+                cursor: pointer;
+
+                /* &:hover + .menu {
+                    display: block;
+                    cursor: pointer;
+                } */
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                padding: 0;
+                z-index: 1;
+                list-style: none;
+                border: solid red 1px;
+        
+                li {
+                    color: black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    width: 100%;
+        
+                    &:hover {
+                        background-color: #f1f1f1
+                    }
+                }    
+            }
+
+            &:hover .menu {
+                display: block;
+                cursor: pointer;
+            }
+        }
+        
+        
+    }
+    
+}
