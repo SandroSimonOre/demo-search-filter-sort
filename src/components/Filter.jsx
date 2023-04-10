@@ -11,11 +11,13 @@ const checkList = [
 export const Filter = ({handler}) => {
   return (
     <div className={styles.filter}>
+      <h2>Filter</h2>
       {
         checkList.map(e => (
           <label key={e.id} onChange={handler} className={styles.menuItem}>
-            <input value={e.id} type="checkbox" />
             {e.caption}
+            <input value={e.id} type="checkbox" />
+            <span className={styles.checkmark}></span>
           </label>
         ))
       }

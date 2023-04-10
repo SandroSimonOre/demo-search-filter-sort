@@ -4,8 +4,9 @@
     flex-wrap: wrap;
     background-color: black;
     color: white;
-    //height: 100vh;
-
+    padding: 1rem;
+    min-height: 100vh;
+    align-items: flex-start;
     .header {
         width: 100%;
         //border: solid green 1px;
@@ -20,17 +21,19 @@
         display: flex;
         width: 80%;
         flex-wrap: wrap;
-
+        justify-content: space-between;
+        
         .search {
             width: 100%;
             
             input {
                 width: 100%;
                 background-color: black;
-                padding: 1rem;
+                padding: 0.8rem;
                 color: white;
                 border: solid white 1px;
                 outline: none;
+                font-size: 1.2rem;
 
                 &::placeholder {
                     color: white;
@@ -44,7 +47,7 @@
         }
 
         .dropdown {
-            width: 50%;
+            width: 6rem;
             position: relative;
             display: flex;
             justify-content: end;
@@ -56,14 +59,11 @@
                 font-size: 16px;
                 border: solid yellow 1px;
                 cursor: pointer;
-
-                /* &:hover + .menu {
-                    display: block;
-                    cursor: pointer;
-                } */
+                height: 1.2rem;
             }
 
             .menu {
+                transform: translateY(1.2rem);
                 display: none;
                 position: absolute;
                 background-color: #f9f9f9;
@@ -91,9 +91,6 @@
                 display: block;
                 cursor: pointer;
             }
-        }
-        
-        
-    }
-    
+        }       
+    }    
 }
