@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react'
 import { Banner } from './components/Banner';
 import { List } from './components/List';
 import { Filter } from './components/Filter';
+import { Sort } from './components/Sort';
 import {courses} from './data/courses'
+import { GoMarkGithub } from 'react-icons/go'
+import { GrLinkedin } from 'react-icons/gr'
+// import { TiSocialLinkedinCircular } from 'react-icons/ti'
 import styles from './styles/App.module.scss'
 
 export default function App() {
@@ -79,20 +83,31 @@ export default function App() {
           <p>{`${data.length} results ${searchTerm ? 'for ' + searchTerm : ''}`}</p>
         </div>
         
-        <div className={styles.dropdown}>
-            <span>Ordenar</span>
-            <ul className={styles.menu}>
-              <li onClick={() => setOrder('titleAsc')}>Alphabetical (A-Z)</li>
-              <li onClick={() => setOrder('titleDesc')}>Alphabetical (Z-A)</li>
-              <li onClick={() => setOrder('newest')}>Newest</li>
-              <li onClick={() => setOrder('oldest')}>Oldest</li>
-            </ul>
+        <div className={styles.sortContainer}>
+            <Sort setOrder={setOrder} />
         </div>
         
         <div className={styles.list}>
           <List data={data} />           
         </div>
 
+      </section>
+
+      <section className={styles.footer}>
+        <a href="https://sandrosimon.com" target="_blank" rel="noopener noreferrer">
+          sandrosimon.com
+        </a>
+        
+        <ul className={styles.socialMedia}>
+          <a href="https://github.com/SandroSimonOre" target="_blank" rel="noopener noreferrer">
+            <GoMarkGithub size={30} />
+          </a>
+          
+          <a href="https://www.linkedin.com/in/sandrosimonore/" target="_blank" rel="noopener noreferrer">
+            <GrLinkedin size={28} />
+          </a>
+          
+        </ul>
       </section>
       
     </div>

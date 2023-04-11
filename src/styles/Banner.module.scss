@@ -1,9 +1,12 @@
 .Banner {
+    
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
     .text {
-        width: 50%;
-        padding: 0 2rem;
-
+        width: 45%;
+    
         h1 {
             font-size: 2.5rem;
             margin: 1rem 0;
@@ -17,7 +20,7 @@
     }
 
     .illustration {
-        width: 50%;
+        width: 45%;
 
         img {
             width: 100%;
