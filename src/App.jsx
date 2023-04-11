@@ -3,17 +3,19 @@ import { Banner } from './components/Banner';
 import { List } from './components/List';
 import { Filter } from './components/Filter';
 import { Sort } from './components/Sort';
-import {courses} from './data/courses'
+import { SearchBox } from './components/SearchBox';
 import { GoMarkGithub } from 'react-icons/go'
 import { GrLinkedin } from 'react-icons/gr'
 // import { TiSocialLinkedinCircular } from 'react-icons/ti'
+//import {courses} from './data/courses'
+import { videos } from './data/videos';
 import styles from './styles/App.module.scss'
 
 export default function App() {
   
   const [order, setOrder] = useState('')
   const [searchTerm, setSearchTerm] = useState('')
-  const [data, setData] = useState(courses)
+  const [data, setData] = useState(videos)
   const [categories, setCategories] = useState([])
 
   // Order
@@ -37,7 +39,7 @@ export default function App() {
   // Search and Filter
   useEffect( ()=> {
     
-    let updatedData = [...courses]
+    let updatedData = [...videos]
     if (categories.length > 0 ) {
       updatedData = updatedData.filter(e => categories.includes(e.categoryId))
     }
@@ -55,12 +57,6 @@ export default function App() {
     }
   }
 
-  const handleChange = e => {
-    const updateSearchTerm = setTimeout(()=> {
-      setSearchTerm(e.target.value)
-    }, 2000)
-    return ()=> clearTimeout(updateSearchTerm)
-  }
 
   return (
     <div className={styles.App}>
@@ -75,8 +71,8 @@ export default function App() {
 
       <section className={styles.main}>
       
-        <div className={styles.search}>
-          <input onChange={ handleChange } type="text" id="searchTerm" placeholder="Search" />
+        <div className={styles.searchBoxContainer}>
+          <SearchBox setSearchTerm={setSearchTerm} />
         </div>
         
         <div className={styles.results}>

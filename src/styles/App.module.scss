@@ -17,24 +17,14 @@
         width: 80%;
         flex-wrap: wrap;
         justify-content: space-between;
-        
-        .search {
+
+        .searchBoxContainer {
             width: 100%;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+        }
 
-            input {
-                width: 100%;
-                background-color: black;
-                padding: 0.8rem;
-                color: white;
-                border: solid white 1px;
-                outline: none;
-                font-size: 1.2rem;
-
-                &::placeholder {
-                    color: white;
-                }
-            }
+        .list {
+            width: 100%;
         }
 
         .results {

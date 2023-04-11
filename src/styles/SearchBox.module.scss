@@ -1,0 +1,37 @@
+.searchBox {
+
+    width: 100%;
+    display: flex;
+    border: solid white 1px;
+    justify-content: space-between;
+
+    input {
+
+        width: 100%;
+        background-color: black;
+        padding: 0.8rem;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 1.3rem;
+
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    span {
+
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        user-select: none;
+ 
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(20,20,20) ;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+export const videos = [
+    { order: 1, id: 'i_LwzRVP7bg', title: 'Machine Learning for everybody', categoryId: 'datascience'},
+    { order: 2, id: 'f4idgaq2VqA', title: 'DevOps Pipeline with Jenkins', categoryId: 'devops'},
+    { order: 3, id: 'u6gSSpfsoOQ', title: 'React for Beginners', categoryId: 'frontend'},
+    { order: 4, id: 'OcTPaUfay5I', title: 'Personal Website with Next.js and Sanity', categoryId: 'frontend'},
+    { order: 5, id: '3qBXWUpoPHo', title: 'Angular for Beginners', categoryId: 'frontend'},
+    { order: 6, id: 'IyBhFma4H1A', title: 'React with 3D animation', categoryId: 'frontend'},
+    { order: 7, id: 'zJSY8tbf_ys', title: 'Become a Frontend Web Developer', categoryId: 'frontend'},
+    { order: 8, id: 'VtRLrQ3Ev-U', title: 'Python TensorFlow for Machine Learning', categoryId: 'datascience'},
+    { order: 9, id: '8vfQ6SWBZ-U', title: 'React Testing Course', categoryId: 'frontend'},
+    { order: 10, id: 'AplluksKvzI', title: 'Kubernetes and Cloud Native Associate Full Course', categoryId: 'devops'},
+    { order: 11, id: 'ft30zcMlFao', title: 'Tailwind CSS Full Course', categoryId: 'frontend'},
+    { order: 12, id: 'KjY94sAKLlw', title: 'Next.js Full Course', categoryId: 'frontend'},
+    { order: 13, id: '7f50sQYjNRA', title: 'Matlab Crash Course', categoryId: 'datascience'},
+    { order: 14, id: 'SOTamWNgDKc', title: 'AWS Certified Cloud Practitioner', categoryId: 'devops'},
+    { order: 15, id: '0sOvCWFmrtA', title: 'Python API Development', categoryId: 'backend'},
+    { order: 16, id: 'jBzwzrDvZ18', title: 'Python Backend Web Development', categoryId: 'backend'},
+    { order: 17, id: 'kTp5xUtcalw', title: 'Docker and Kubernetes - Full course', categoryId: 'devops'},
+    { order: 18, id: 'V_xro1bcAuA', title: 'PyTorch for Beginners', categoryId: 'datascience'} 
+].reverse()

@@ -1,14 +1,18 @@
+import { VideoCard } from './VideoCard'
 import styles from '../styles/List.module.scss'
 
 export const List = ({data}) => {
     return (
         <div className={styles.list}>
             {
-                data.map(c => (
-                <div key={c.id} className={styles.card}>
-                    <h3>{c.title}</h3>
-                    <p>{c.categoryName.toUpperCase()}</p>
-                </div>
+                data.map(item => (
+                    <VideoCard
+                        key={item.id}
+                        id={item.id}
+                        title={item.title}
+                        width='300'
+                        height='215'
+                    />
                 ))
             }
         </div>

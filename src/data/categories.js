@@ -1,8 +1,8 @@
 export const categories = [
 
-    {id:'python', title: 'Python 3'},
-    {id: 'powerbi', title: 'Power BI' },
-    {id: 'databases', title: 'Databases'},
-    {id: 'excel', title: 'Excel'},
+    {id:'datascience', caption: 'Data Science'},
+    {id: 'devops', caption: 'DevOps' },
+    {id: 'frontend', caption: 'Frontend'},
+    {id: 'backend', caption: 'Backend'},
 
 ]
