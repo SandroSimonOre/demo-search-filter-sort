@@ -5,10 +5,10 @@ export const Banner = () => {
         <div className={styles.Banner}>
             <div className={styles.text}>
                 <h1>
-                    Browse all learning paths and modules
+                    Browse the most interesting YouTube videos about Technology
                 </h1>
                 <p>
-                    Learn new skills and discover the power of Microsoft products with step-by-step guidance. Start your journey today by exploring our learning paths and modules.
+                    Learn about cloud technologies, Frontend, Backend, Machine Learning, Data Science with these great videos.
                 </p>
             </div>
             <div className={styles.illustration}>
