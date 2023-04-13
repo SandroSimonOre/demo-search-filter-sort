@@ -1,4 +1,4 @@
-.Banner {
+.banner {
     
     display: flex;
     justify-content: space-between;
@@ -27,3 +27,24 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .banner {
+
+        flex-direction: column-reverse;
+        width: 100%;
+
+        .illustration {
+            width: 100%;
+        }
+
+        .text {
+            width: 100%;
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+    
+  }

@@ -6,8 +6,6 @@ import { Sort } from './components/Sort';
 import { SearchBox } from './components/SearchBox';
 import { GoMarkGithub } from 'react-icons/go'
 import { GrLinkedin } from 'react-icons/gr'
-// import { TiSocialLinkedinCircular } from 'react-icons/ti'
-//import {courses} from './data/courses'
 import { videos } from './data/videos';
 import styles from './styles/App.module.scss'
 

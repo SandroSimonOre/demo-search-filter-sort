@@ -55,3 +55,21 @@
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .App {
+    width: 100%;
+    .main {
+        width: 100%;
+    }
+    .sidebar {
+        width: 100%;
+    }
+    .header {
+        //background-color: yellow;
+        width: 100%;
+    }
+  }
+  
+}

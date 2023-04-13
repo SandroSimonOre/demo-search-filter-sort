@@ -2,7 +2,7 @@ import styles from '../styles/Banner.module.scss'
 
 export const Banner = () => {
     return (
-        <div className={styles.Banner}>
+        <div className={styles.banner}>
             <div className={styles.text}>
                 <h1>
                     Browse the most interesting YouTube videos about Technology
